@@ -1,5 +1,14 @@
 import { MenuIcon } from "lucide-react";
-import { DropdownMenu, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import {
+  RegisterLink,
+  LoginLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 
 export default function UserNav() {
   return (
@@ -15,6 +24,17 @@ export default function UserNav() {
           />
         </div>
       </DropdownMenuTrigger>
+      <DropdownMenuContent
+        align="end"
+        className="w-[200px]"
+      >
+        <DropdownMenuItem>
+          <RegisterLink className="w-full">Register</RegisterLink>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <LoginLink className="w-full">Login</LoginLink>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 }
