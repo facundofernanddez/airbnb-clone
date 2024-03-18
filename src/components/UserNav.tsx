@@ -8,9 +8,14 @@ import {
 import {
   RegisterLink,
   LoginLink,
+  LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-export default function UserNav() {
+export default async function UserNav() {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -28,12 +33,22 @@ export default function UserNav() {
         align="end"
         className="w-[200px]"
       >
-        <DropdownMenuItem>
-          <RegisterLink className="w-full">Register</RegisterLink>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <LoginLink className="w-full">Login</LoginLink>
-        </DropdownMenuItem>
+        {user ? (
+          <>
+            <DropdownMenuItem>
+              <LogoutLink className="w-full">Logout</LogoutLink>
+            </DropdownMenuItem>
+          </>
+        ) : (
+          <>
+            <DropdownMenuItem>
+              <RegisterLink className="w-full">Register</RegisterLink>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <LoginLink className="w-full">Login</LoginLink>
+            </DropdownMenuItem>
+          </>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
