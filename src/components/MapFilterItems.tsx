@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function MapFilterItems() {
   return (
-    <div>
+    <div className="flex gap-x-10 mt-5 w-full overflow-x-scroll no-scrollbar">
       {categoryItems.map((item, idx) => (
         <Link
           key={item.id}
@@ -19,6 +19,7 @@ export default function MapFilterItems() {
               height={24}
             />
           </div>
+          <p className="text-xs font-medium">{item.title}</p>
         </Link>
       ))}
     </div>
