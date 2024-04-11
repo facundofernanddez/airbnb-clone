@@ -1,5 +1,6 @@
 import prisma from "@/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   const { getUser } = getKindeServerSession();
@@ -14,4 +15,19 @@ export async function GET() {
       id: user.id,
     },
   });
+
+  if (!dbUser) {
+    dbUser = await prisma.user.create({
+      data: {
+        email: user.email ?? "",
+        firstName: user.given_name ?? "",
+        lastName: user.family_name ?? "",
+        id: user.id,
+        profileImg:
+          user.picture ?? `https://avatar.vercel.sh/${user.given_name}`,
+      },
+    });
+  }
+
+  return NextResponse.redirect("http://localhost:3000/");
 }
