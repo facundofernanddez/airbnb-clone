@@ -21,3 +21,7 @@ model User {
   lastName   String
   profileImg String?
 }
+
+model Home {
+  id String @id @default(uuid())
+}
