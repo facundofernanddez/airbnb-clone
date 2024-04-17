@@ -6,6 +6,8 @@ export default function StructurePage() {
           Which of these best describe your Home?
         </h2>
       </div>
+
+      <form></form>
     </>
   );
 }
