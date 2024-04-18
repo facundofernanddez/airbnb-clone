@@ -1,6 +1,8 @@
 "use client";
 
 import { categoryItems } from "@/lib/categoryItems";
+import { Card, CardHeader } from "./ui/card";
+import Image from "next/image";
 
 export default function SelectCategory() {
   return (
@@ -9,7 +11,19 @@ export default function SelectCategory() {
         <div
           key={item.id}
           className="cursor-pointer"
-        ></div>
+        >
+          <Card>
+            <CardHeader>
+              <Image
+                src={item.imageUrl}
+                alt={item.name}
+                height={32}
+                width={32}
+                className="h-8 w-8"
+              />
+            </CardHeader>
+          </Card>
+        </div>
       ))}
     </div>
   );
