@@ -1,3 +1,5 @@
+import SelectCategory from "@/components/SelectedCategory";
+
 export default function StructurePage() {
   return (
     <>
@@ -7,7 +9,9 @@ export default function StructurePage() {
         </h2>
       </div>
 
-      <form></form>
+      <form>
+        <SelectCategory />
+      </form>
     </>
   );
 }
