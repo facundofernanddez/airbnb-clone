@@ -15,7 +15,10 @@ export default function SelectCategory() {
           key={item.id}
           className="cursor-pointer"
         >
-          <Card>
+          <Card
+            className={selectedCategory === item.name ? "border-primary" : ""}
+            onClick={() => setSelectedCategory(item.name)}
+          >
             <CardHeader>
               <Image
                 src={item.imageUrl}
