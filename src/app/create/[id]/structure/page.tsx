@@ -1,4 +1,5 @@
 import SelectCategory from "@/components/SelectedCategory";
+import { Button } from "@/components/ui/button";
 
 export default function StructurePage() {
   return (
@@ -11,6 +12,12 @@ export default function StructurePage() {
 
       <form>
         <SelectCategory />
+
+        <div className="fixed w-full bottom-0 z-10 bg-white border-t h-24">
+          <div className="flex items-center justify-between mx-auto px-5 lg:px-10 h-full">
+            <Button>Cancel</Button>
+          </div>
+        </div>
       </form>
     </>
   );
