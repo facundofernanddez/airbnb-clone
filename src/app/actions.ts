@@ -31,3 +31,18 @@ export async function createAirbnbHome({ userId }: { userId: string }) {
     return redirect(`/create/${data.id}/description`);
   }
 }
+
+export default async function createCategoryPage(formData: FormData) {
+  const categoryName = formData.get("categoryName") as string;
+  const homeId = formData.get("homeId") as string;
+
+  const data = await prisma.home.update({
+    where: {
+      id: homeId,
+    },
+    data: {
+      categoryName: categoryName,
+      addedCategory: true,
+    },
+  });
+}
