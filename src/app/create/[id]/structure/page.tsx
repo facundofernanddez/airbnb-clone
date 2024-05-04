@@ -2,7 +2,7 @@ import SelectCategory from "@/components/SelectedCategory";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function StructurePage() {
+export default function StructurePage({ params }: { params: { id: string } }) {
   return (
     <>
       <div className="w-3/5 mx-auto">
@@ -12,6 +12,12 @@ export default function StructurePage() {
       </div>
 
       <form>
+        <input
+          type="hidden"
+          name="homeId"
+          value={params.id}
+        />
+
         <SelectCategory />
 
         <div className="fixed w-full bottom-0 z-10 bg-white border-t h-24">
