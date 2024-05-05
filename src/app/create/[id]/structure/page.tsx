@@ -1,3 +1,4 @@
+import createCategoryPage from "@/app/actions";
 import SelectCategory from "@/components/SelectedCategory";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export default function StructurePage({ params }: { params: { id: string } }) {
         </h2>
       </div>
 
-      <form>
+      <form action={createCategoryPage}>
         <input
           type="hidden"
           name="homeId"
