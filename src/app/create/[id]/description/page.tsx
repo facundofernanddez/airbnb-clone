@@ -1,3 +1,4 @@
+import Counter from "@/components/Counter";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -61,6 +62,7 @@ export default function DescriptionPage() {
                     How many guests do you want?
                   </p>
                 </div>
+                <Counter />
               </div>
             </CardHeader>
           </Card>
