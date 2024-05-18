@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function DescriptionPage() {
   return (
@@ -18,6 +19,14 @@ export default function DescriptionPage() {
               name="title"
               required
               placeholder="Short and simple..."
+            />
+          </div>
+          <div className="flex flex-col gap-y-2">
+            <Label>Description</Label>
+            <Textarea
+              name="description"
+              required
+              placeholder="Please describe your home..."
             />
           </div>
         </div>
