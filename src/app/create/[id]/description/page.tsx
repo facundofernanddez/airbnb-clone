@@ -17,6 +17,7 @@ export default function DescriptionPage() {
             <Label>Title</Label>
             <Input
               name="title"
+              type="text"
               required
               placeholder="Short and simple..."
             />
@@ -27,6 +28,26 @@ export default function DescriptionPage() {
               name="description"
               required
               placeholder="Please describe your home..."
+            />
+          </div>
+
+          <div className="flex flex-col gap-y-2">
+            <Label>Price</Label>
+            <Input
+              name="price"
+              required
+              type="number"
+              placeholder="Pice per night in USD"
+              min={10}
+            />
+          </div>
+
+          <div className="flex flex-col gap-y-2">
+            <Label>Image</Label>
+            <Input
+              name="image"
+              type="file"
+              required
             />
           </div>
         </div>
