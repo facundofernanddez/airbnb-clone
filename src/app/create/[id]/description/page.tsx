@@ -1,3 +1,4 @@
+import { Card, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -50,6 +51,19 @@ export default function DescriptionPage() {
               required
             />
           </div>
+
+          <Card>
+            <CardHeader className="flex flex-col gap-y-5">
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col">
+                  <h3 className="underline font-medium">Guest</h3>
+                  <p className="text-muted-foreground text-sm">
+                    How many guests do you want?
+                  </p>
+                </div>
+              </div>
+            </CardHeader>
+          </Card>
         </div>
       </form>
     </>
