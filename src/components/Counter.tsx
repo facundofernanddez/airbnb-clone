@@ -12,7 +12,9 @@ export default function Counter() {
   };
 
   const decrease = () => {
-    setAmount(amount - 1);
+    if (amount > 0) {
+      setAmount(amount - 1);
+    }
   };
 
   return (
@@ -32,7 +34,7 @@ export default function Counter() {
         type="button"
         onClick={increase}
       >
-        <Plus className="h-4 w-4 text-primary " />
+        <Plus className="h-4 w-4 text-primary" />
       </Button>
     </div>
   );
