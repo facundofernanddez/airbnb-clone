@@ -1,4 +1,5 @@
 import createCategoryPage from "@/app/actions";
+import BottomBar from "@/components/BottomBar";
 import SelectCategory from "@/components/SelectedCategory";
 import CreationSubmit from "@/components/SubmitButtons";
 import { Button } from "@/components/ui/button";
@@ -22,18 +23,7 @@ export default function StructurePage({ params }: { params: { id: string } }) {
 
         <SelectCategory />
 
-        <div className="fixed w-full bottom-0 z-10 bg-white border-t h-24">
-          <div className="flex items-center justify-between mx-auto px-5 lg:px-10 h-full">
-            <Button
-              variant={"secondary"}
-              size={"lg"}
-              asChild
-            >
-              <Link href={"/"}>Cancel</Link>
-            </Button>
-            <CreationSubmit />
-          </div>
-        </div>
+        <BottomBar />
       </form>
     </>
   );
