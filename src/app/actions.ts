@@ -48,3 +48,5 @@ export default async function createCategoryPage(formData: FormData) {
 
   return redirect(`/create/${homeId}/description`);
 }
+
+export async function createDescription(formData: FormData) {}
