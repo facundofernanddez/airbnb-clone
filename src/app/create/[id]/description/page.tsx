@@ -63,7 +63,7 @@ export default function DescriptionPage() {
                     How many guests do you want?
                   </p>
                 </div>
-                <Counter />
+                <Counter name="guest" />
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex flex-col">
@@ -72,7 +72,7 @@ export default function DescriptionPage() {
                     How many rooms do you have?
                   </p>
                 </div>
-                <Counter />
+                <Counter name="room" />
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex flex-col">
@@ -81,7 +81,7 @@ export default function DescriptionPage() {
                     How many bathrooms do you have?
                   </p>
                 </div>
-                <Counter />
+                <Counter name="bathroom" />
               </div>
             </CardHeader>
           </Card>
