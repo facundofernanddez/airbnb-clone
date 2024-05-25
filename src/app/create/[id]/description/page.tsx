@@ -1,3 +1,4 @@
+import { createDescription } from "@/app/actions";
 import BottomBar from "@/components/BottomBar";
 import Counter from "@/components/Counter";
 import { Card, CardHeader } from "@/components/ui/card";
@@ -18,7 +19,7 @@ export default function DescriptionPage({
         </h2>
       </div>
 
-      <form>
+      <form action={createDescription}>
         <input
           type="hidden"
           name="homeId"
