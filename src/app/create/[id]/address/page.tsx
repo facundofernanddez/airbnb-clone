@@ -1,3 +1,11 @@
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 export default function AddressRoute() {
   return (
     <>
@@ -6,6 +14,21 @@ export default function AddressRoute() {
           Where is your home located?
         </h2>
       </div>
+
+      <form action="">
+        <div className="w-3/5 mx-auto">
+          <div className="mb-5">
+            <Select required>
+              <SelectTrigger>
+                <SelectValue placeholder="Select a Country" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup></SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+      </form>
     </>
   );
 }
