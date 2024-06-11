@@ -2,6 +2,7 @@ import {
   Select,
   SelectContent,
   SelectGroup,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -23,7 +24,9 @@ export default function AddressRoute() {
                 <SelectValue placeholder="Select a Country" />
               </SelectTrigger>
               <SelectContent>
-                <SelectGroup></SelectGroup>
+                <SelectGroup>
+                  <SelectLabel>Countries</SelectLabel>
+                </SelectGroup>
               </SelectContent>
             </Select>
           </div>
