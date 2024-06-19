@@ -7,3 +7,16 @@ const countriesFormatted = countries.map((item) => ({
   latLang: item.latlng,
   region: item.region,
 }));
+
+const useCountries = () => {
+  const getAllCountries = () => countriesFormatted;
+
+  const getCountryByValue = (value: string) => {
+    return countriesFormatted.find((item) => item.value === value);
+  };
+
+  return {
+    getAllCountries,
+    getCountryByValue,
+  };
+};
