@@ -2,12 +2,15 @@ import {
   Select,
   SelectContent,
   SelectGroup,
+  SelectItem,
   SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useCountries } from "@/lib/getCountries";
 
 export default function AddressRoute() {
+  const { getAllCountries } = useCountries();
   return (
     <>
       <div className="w-3/5 mx-auto">
@@ -26,6 +29,14 @@ export default function AddressRoute() {
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Countries</SelectLabel>
+                  {getAllCountries().map((country) => (
+                    <SelectItem
+                      key={country.value}
+                      value={country.value}
+                    >
+                      {country.flag} {country.label} {country.region}
+                    </SelectItem>
+                  ))}
                 </SelectGroup>
               </SelectContent>
             </Select>
