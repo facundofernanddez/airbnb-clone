@@ -34,7 +34,7 @@ export default function AddressRoute() {
                       key={country.value}
                       value={country.value}
                     >
-                      {country.flag} {country.label} {country.region}
+                      {country.flag} {country.label} / {country.region}
                     </SelectItem>
                   ))}
                 </SelectGroup>
