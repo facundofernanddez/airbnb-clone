@@ -7,10 +7,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useCountries } from "@/lib/getCountries";
+import dynamic from "next/dynamic";
 
 export default function AddressRoute() {
   const { getAllCountries } = useCountries();
+
+  const LazyMap = dynamic(() => import("@/components/Map"), {
+    ssr: false,
+    loading: () => <Skeleton className="h-[50vh] w-full" />,
+  });
   return (
     <>
       <div className="w-3/5 mx-auto">
@@ -41,6 +48,8 @@ export default function AddressRoute() {
               </SelectContent>
             </Select>
           </div>
+
+          <LazyMap />
         </div>
       </form>
     </>
