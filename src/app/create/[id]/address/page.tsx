@@ -1,3 +1,4 @@
+import BottomBar from "@/components/BottomBar";
 import {
   Select,
   SelectContent,
@@ -27,7 +28,7 @@ export default function AddressRoute() {
       </div>
 
       <form action="">
-        <div className="w-3/5 mx-auto">
+        <div className="w-3/5 mx-auto mb-36">
           <div className="mb-5">
             <Select required>
               <SelectTrigger>
@@ -51,6 +52,8 @@ export default function AddressRoute() {
 
           <LazyMap />
         </div>
+
+        <BottomBar />
       </form>
     </>
   );
