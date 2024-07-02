@@ -11,9 +11,11 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { useCountries } from "@/lib/getCountries";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 
 export default function AddressRoute() {
   const { getAllCountries } = useCountries();
+  const [locationValue, setLocationValue] = useState("");
 
   const LazyMap = dynamic(() => import("@/components/Map"), {
     ssr: false,
