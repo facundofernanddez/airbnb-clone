@@ -1,3 +1,5 @@
+"use client";
+
 import BottomBar from "@/components/BottomBar";
 import {
   Select,
@@ -32,7 +34,10 @@ export default function AddressRoute() {
       <form action="">
         <div className="w-3/5 mx-auto mb-36">
           <div className="mb-5">
-            <Select required>
+            <Select
+              required
+              onValueChange={(value) => setLocationValue(value)}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select a Country" />
               </SelectTrigger>
@@ -52,7 +57,7 @@ export default function AddressRoute() {
             </Select>
           </div>
 
-          <LazyMap />
+          <LazyMap locationValue={locationValue} />
         </div>
 
         <BottomBar />
