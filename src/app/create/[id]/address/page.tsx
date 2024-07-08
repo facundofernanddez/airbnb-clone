@@ -1,5 +1,6 @@
 "use client";
 
+import { createLocation } from "@/app/actions";
 import BottomBar from "@/components/BottomBar";
 import {
   Select,
@@ -31,7 +32,7 @@ export default function AddressRoute({ params }: { params: { id: string } }) {
         </h2>
       </div>
 
-      <form action="">
+      <form action={createLocation}>
         <input
           type="hidden"
           name="homeId"
