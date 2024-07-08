@@ -32,6 +32,7 @@ export default function AddressRoute() {
       </div>
 
       <form action="">
+        <input type="hidden" />
         <div className="w-3/5 mx-auto mb-36">
           <div className="mb-5">
             <Select
