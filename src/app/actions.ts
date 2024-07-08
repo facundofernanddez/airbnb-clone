@@ -100,4 +100,6 @@ export async function createLocation(formData: FormData) {
       country: "",
     },
   });
+
+  return redirect("/");
 }
