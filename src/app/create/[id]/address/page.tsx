@@ -15,7 +15,7 @@ import { useCountries } from "@/lib/getCountries";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 
-export default function AddressRoute() {
+export default function AddressRoute({ params }: { params: { id: string } }) {
   const { getAllCountries } = useCountries();
   const [locationValue, setLocationValue] = useState("");
 
@@ -32,7 +32,11 @@ export default function AddressRoute() {
       </div>
 
       <form action="">
-        <input type="hidden" />
+        <input
+          type="hidden"
+          name="homeId"
+          value={params.id}
+        />
         <div className="w-3/5 mx-auto mb-36">
           <div className="mb-5">
             <Select
