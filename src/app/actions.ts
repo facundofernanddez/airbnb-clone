@@ -93,11 +93,11 @@ export async function createLocation(formData: FormData) {
 
   const data = await prisma.home.update({
     where: {
-      id: "",
+      id: homeId,
     },
     data: {
       addedLocation: true,
-      country: "",
+      country: countryValue,
     },
   });
 
