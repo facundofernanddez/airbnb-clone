@@ -1,3 +1,10 @@
+interface iAppProps {
+  imagePath: string;
+  descriptcion: string;
+  location: string;
+  price: number;
+}
+
 export default function ListingCard() {
   return (
     <div>
