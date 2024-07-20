@@ -5,7 +5,12 @@ interface iAppProps {
   price: number;
 }
 
-export default function ListingCard() {
+export default function ListingCard({
+  descriptcion,
+  imagePath,
+  location,
+  price,
+}: iAppProps) {
   return (
     <div>
       <h1>Hola</h1>
