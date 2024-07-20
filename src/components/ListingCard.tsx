@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface iAppProps {
   imagePath: string;
   descriptcion: string;
@@ -12,8 +14,15 @@ export default function ListingCard({
   price,
 }: iAppProps) {
   return (
-    <div>
-      <h1>Hola</h1>
+    <div className="flex flex-col">
+      <div className="relative h-72 ">
+        <Image
+          src={}
+          alt="Image of House"
+          fill
+          className="rounded-lg h-full object-cover mb-3"
+        />
+      </div>
     </div>
   );
 }
