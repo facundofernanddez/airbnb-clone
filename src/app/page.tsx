@@ -28,7 +28,7 @@ export default async function Home() {
     <main className="container mx-auto px-5 lg:px-10">
       <MapFilterItems />
 
-      <div>
+      <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
         {data.map((item) => (
           <ListingCard
             key={item.id}
