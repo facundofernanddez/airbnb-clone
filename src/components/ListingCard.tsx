@@ -1,4 +1,6 @@
+import { useCountries } from "@/lib/getCountries";
 import Image from "next/image";
+import Link from "next/link";
 
 interface iAppProps {
   imagePath: string;
@@ -13,6 +15,9 @@ export default function ListingCard({
   location,
   price,
 }: iAppProps) {
+  const { getCountryByValue } = useCountries();
+  const country = getCountryByValue(location);
+
   return (
     <div className="flex flex-col">
       <div className="relative h-72 ">
@@ -23,6 +28,15 @@ export default function ListingCard({
           className="rounded-lg h-full object-cover mb-3"
         />
       </div>
+
+      <Link href={"/"}>
+        <h3 className="font-medium text-base">
+          {country?.flag} {country?.label} / {country?.region}
+        </h3>
+        <p className="text-muted-foreground text-sm line-clamp-2">
+          {descriptcion}
+        </p>
+      </Link>
     </div>
   );
 }
