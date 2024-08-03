@@ -36,6 +36,9 @@ export default function ListingCard({
         <p className="text-muted-foreground text-sm line-clamp-2">
           {descriptcion}
         </p>
+        <p className="pt-2 text-muted-foreground">
+          <span className="font-medium text-black">${price}</span> Night
+        </p>
       </Link>
     </div>
   );
