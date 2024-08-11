@@ -20,7 +20,7 @@ export default function ListingCard({
 
   return (
     <div className="flex flex-col">
-      <div className="relative h-72 ">
+      <div className="relative h-72">
         <Image
           src={`https://wgqklerajuawttphkbqd.supabase.co/storage/v1/object/public/images/${imagePath}`}
           alt="Image of House"
