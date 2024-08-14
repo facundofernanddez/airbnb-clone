@@ -21,7 +21,13 @@ async function getData() {
   return data;
 }
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: {
+    filter?: string;
+  };
+}) {
   const data = await getData();
 
   return (
