@@ -14,6 +14,7 @@ async function getData({
       addedCategory: true,
       addedLocation: true,
       addedDescription: true,
+      categoryName: searchParams?.filter ?? undefined,
     },
     select: {
       photo: true,
