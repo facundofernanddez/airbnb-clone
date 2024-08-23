@@ -43,17 +43,33 @@ export default async function Home({
     <main className="container mx-auto px-5 lg:px-10">
       <MapFilterItems />
 
-      <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
-        {data.map((item) => (
-          <ListingCard
-            key={item.id}
-            descriptcion={item.description as string}
-            imagePath={item.photo as string}
-            location={item.country as string}
-            price={item.price as number}
-          />
-        ))}
-      </div>
+      <ShowItems />
     </main>
+  );
+}
+
+async function ShowItems({
+  searchParams,
+}: {
+  searchParams?: {
+    filter?: string;
+  };
+}) {
+  const data = await getData({
+    searchParams: searchParams,
+  });
+
+  return (
+    <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+      {data.map((item) => (
+        <ListingCard
+          key={item.id}
+          descriptcion={item.description as string}
+          imagePath={item.photo as string}
+          location={item.country as string}
+          price={item.price as number}
+        />
+      ))}
+    </div>
   );
 }
