@@ -35,10 +35,6 @@ export default async function Home({
     filter?: string;
   };
 }) {
-  const data = await getData({
-    searchParams: searchParams,
-  });
-
   return (
     <main className="container mx-auto px-5 lg:px-10">
       <MapFilterItems />
