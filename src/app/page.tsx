@@ -28,7 +28,7 @@ async function getData({
   return data;
 }
 
-export default async function Home({
+export default function Home({
   searchParams,
 }: {
   searchParams?: {
