@@ -1,6 +1,8 @@
 import ListingCard from "@/components/ListingCard";
 import MapFilterItems from "@/components/MapFilterItems";
+import { SkeletonCard } from "@/components/SkeletonCard";
 import prisma from "@/lib/db";
+import { Suspense } from "react";
 
 async function getData({
   searchParams,
@@ -39,7 +41,12 @@ export default function Home({
     <main className="container mx-auto px-5 lg:px-10">
       <MapFilterItems />
 
-      <ShowItems />
+      <Suspense
+        key={searchParams?.filter}
+        fallback={<SkeletonLoading />}
+      >
+        <ShowItems searchParams={searchParams} />
+      </Suspense>
     </main>
   );
 }
@@ -66,6 +73,20 @@ async function ShowItems({
           price={item.price as number}
         />
       ))}
+    </div>
+  );
+}
+
+function SkeletonLoading() {
+  return (
+    <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
     </div>
   );
 }
