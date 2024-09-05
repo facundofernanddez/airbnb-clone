@@ -72,7 +72,7 @@ async function ShowItems({
           {data.map((item) => (
             <ListingCard
               key={item.id}
-              descriptcion={item.description as string}
+              description={item.description as string}
               imagePath={item.photo as string}
               location={item.country as string}
               price={item.price as number}
