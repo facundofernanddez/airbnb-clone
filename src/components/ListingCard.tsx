@@ -4,13 +4,13 @@ import Link from "next/link";
 
 interface iAppProps {
   imagePath: string;
-  descriptcion: string;
+  description: string;
   location: string;
   price: number;
 }
 
 export default function ListingCard({
-  descriptcion,
+  description,
   imagePath,
   location,
   price,
@@ -37,7 +37,7 @@ export default function ListingCard({
           {country?.flag} {country?.label} / {country?.region}
         </h3>
         <p className="text-muted-foreground text-sm line-clamp-2">
-          {descriptcion}
+          {description}
         </p>
         <p className="pt-2 text-muted-foreground">
           <span className="font-medium text-black">${price}</span> Night
