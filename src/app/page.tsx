@@ -3,11 +3,14 @@ import MapFilterItems from "@/components/MapFilterItems";
 import NoItems from "@/components/NoItem";
 import { SkeletonCard } from "@/components/SkeletonCard";
 import prisma from "@/lib/db";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Suspense } from "react";
 
 async function getData({
   searchParams,
+  userId,
 }: {
+  userId: string | undefined;
   searchParams?: {
     filter?: string;
   };
@@ -25,6 +28,11 @@ async function getData({
       price: true,
       description: true,
       country: true,
+      Favorite: {
+        where: {
+          userId: userId ?? undefined,
+        },
+      },
     },
   });
 
@@ -59,8 +67,12 @@ async function ShowItems({
     filter?: string;
   };
 }) {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
   const data = await getData({
     searchParams: searchParams,
+    userId: user?.id,
   });
 
   return (
