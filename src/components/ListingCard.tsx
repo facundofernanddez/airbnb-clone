@@ -7,6 +7,7 @@ interface iAppProps {
   description: string;
   location: string;
   price: number;
+  userId: string | undefined;
 }
 
 export default function ListingCard({
