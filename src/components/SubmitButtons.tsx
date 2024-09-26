@@ -2,7 +2,7 @@
 
 import { useFormStatus } from "react-dom";
 import { Button } from "./ui/button";
-import { Loader2 } from "lucide-react";
+import { Heart, Loader2 } from "lucide-react";
 
 export default function CreationSubmit() {
   const { pending } = useFormStatus();
@@ -22,6 +22,26 @@ export default function CreationSubmit() {
           size={"lg"}
         >
           Next
+        </Button>
+      )}
+    </>
+  );
+}
+
+export function AddToFavorites() {
+  const { pending } = useFormStatus();
+  return (
+    <>
+      {pending ? (
+        <div></div>
+      ) : (
+        <Button
+          variant="outline"
+          size={"icon"}
+          className="bg-primary-foreground"
+          type="submit"
+        >
+          <Heart className="w-4 h-4" />
         </Button>
       )}
     </>
