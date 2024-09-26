@@ -88,6 +88,7 @@ async function ShowItems({
               imagePath={item.photo as string}
               location={item.country as string}
               price={item.price as number}
+              userId={user?.id}
             />
           ))}
         </div>
