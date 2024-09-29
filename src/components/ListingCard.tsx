@@ -9,6 +9,8 @@ interface iAppProps {
   location: string;
   price: number;
   userId: string | undefined;
+  isInFavoriteList: boolean;
+  favoriteId: string;
 }
 
 export default function ListingCard({
@@ -17,6 +19,8 @@ export default function ListingCard({
   location,
   price,
   userId,
+  favoriteId,
+  isInFavoriteList,
 }: iAppProps) {
   const { getCountryByValue } = useCountries();
   const country = getCountryByValue(location);
@@ -33,7 +37,15 @@ export default function ListingCard({
 
         {userId && (
           <div className="z-10 absolute top-2 right-2">
-            <AddToFavorites />
+            {isInFavoriteList ? (
+              <form>
+                <AddToFavorites />
+              </form>
+            ) : (
+              <form>
+                <AddToFavorites />
+              </form>
+            )}
           </div>
         )}
       </div>
