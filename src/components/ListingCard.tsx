@@ -1,7 +1,8 @@
 import { useCountries } from "@/lib/getCountries";
 import Image from "next/image";
 import Link from "next/link";
-import { AddToFavorites } from "./SubmitButtons";
+import { AddToFavorites, DeleteFromFavorites } from "./SubmitButtons";
+import { addToFavorite, deleteFromFavorites } from "@/app/actions";
 
 interface iAppProps {
   imagePath: string;
@@ -12,6 +13,7 @@ interface iAppProps {
   isInFavoriteList: boolean;
   favoriteId: string;
   homeId: string;
+  pathName: string;
 }
 
 export default function ListingCard({
@@ -23,6 +25,7 @@ export default function ListingCard({
   favoriteId,
   isInFavoriteList,
   homeId,
+  pathName,
 }: iAppProps) {
   const { getCountryByValue } = useCountries();
   const country = getCountryByValue(location);
@@ -40,11 +43,26 @@ export default function ListingCard({
         {userId && (
           <div className="z-10 absolute top-2 right-2">
             {isInFavoriteList ? (
-              <form>
-                <AddToFavorites />
+              <form action={deleteFromFavorites}>
+                <input
+                  type="hidden"
+                  name="favoriteId"
+                  value={favoriteId}
+                />
+                <input
+                  type="hidden"
+                  name="userId"
+                  value={userId}
+                />
+                <input
+                  type="hidden"
+                  name="pathName"
+                  value={pathName}
+                />
+                <DeleteFromFavorites />
               </form>
             ) : (
-              <form>
+              <form action={addToFavorite}>
                 <input
                   type="hidden"
                   name="homeId"
@@ -54,6 +72,11 @@ export default function ListingCard({
                   type="hidden"
                   name="userId"
                   value={userId}
+                />
+                <input
+                  type="hidden"
+                  name="pathName"
+                  value={pathName}
                 />
                 <AddToFavorites />
               </form>
