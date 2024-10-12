@@ -38,7 +38,10 @@ export default async function FavoritesRoute() {
       <h2 className="text-3xl font-semibold tracking-tight">Your Favorites</h2>
 
       {data.length === 0 ? (
-        <NoItems />
+        <NoItems
+          description="Please add favorites to see them right here..."
+          title="Hey you don't have any favorites"
+        />
       ) : (
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-8 mt-8">
           {data.map((item) => (
