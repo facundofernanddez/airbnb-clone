@@ -86,7 +86,7 @@ export default function ListingCard({
       </div>
 
       <Link
-        href={"/"}
+        href={`/home/${homeId}`}
         className="mt-2"
       >
         <h3 className="font-medium text-base">
