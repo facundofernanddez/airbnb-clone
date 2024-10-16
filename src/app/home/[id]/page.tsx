@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import prisma from "@/lib/db";
 import { useCountries } from "@/lib/getCountries";
 import Image from "next/image";
@@ -17,6 +18,11 @@ async function getData(homeId: string) {
       title: true,
       categoryName: true,
       country: true,
+      User: {
+        select: {
+          profileImg: true,
+        },
+      },
     },
   });
 
@@ -54,6 +60,17 @@ export default async function HomeRoute({
           <div className="flex gap-x-2 text-muted-foreground">
             <p>{data?.guest} Guest</p> * <p>{data?.bedrooms} Bedrooms</p> *
             <p>{data?.bathrooms} Bathrooms</p>
+          </div>
+
+          <div className="flex items-center mt-6">
+            <img
+              src={
+                data?.User?.profileImg ??
+                "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.MaDrjtmPQGzKiLHrHEPfFAHaHa%26pid%3DApi&f=1&ipt=5d65ee4ded717e0a2944fededcbde6d93bfdd7ba7207a5d97e88413fb8e70095&ipo=images"
+              }
+              alt="user profile image"
+              className="w-11 h-11 rounded-full"
+            />
           </div>
         </div>
       </div>
