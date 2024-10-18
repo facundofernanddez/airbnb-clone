@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { Separator } from "@/components/ui/separator";
 import prisma from "@/lib/db";
 import { useCountries } from "@/lib/getCountries";
 import Image from "next/image";
@@ -21,6 +22,7 @@ async function getData(homeId: string) {
       User: {
         select: {
           profileImg: true,
+          firstName: true,
         },
       },
     },
@@ -71,7 +73,13 @@ export default async function HomeRoute({
               alt="user profile image"
               className="w-11 h-11 rounded-full"
             />
+            <div className="flex flex-col ml-4">
+              <h3 className="font-medium">Hosted by {data?.User?.firstName}</h3>
+              <p className="text-sm text-muted-foreground">Host since 2015</p>
+            </div>
           </div>
+
+          <Separator className="my-7" />
         </div>
       </div>
     </div>
