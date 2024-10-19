@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import CategoryShowcase from "@/components/CategoryShowcase";
+import HomeMap from "@/components/HomeMap";
 import { Separator } from "@/components/ui/separator";
 import prisma from "@/lib/db";
 import { useCountries } from "@/lib/getCountries";
@@ -89,6 +90,8 @@ export default async function HomeRoute({
           <p className="text-muted-foreground">{data?.description}</p>
 
           <Separator className="my-7" />
+
+          <HomeMap locationValue={country?.value as string} />
         </div>
       </div>
     </div>
