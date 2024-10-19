@@ -55,5 +55,5 @@ model Favorite {
   Home   Home?   @relation(fields: [homeId], references: [id])
   homeId String?
 
-  createAt DateTime @default(now())
+  createdAt DateTime @default(now())
 }
