@@ -5,6 +5,7 @@ import SelectCalender from "@/components/SelectCalender";
 import { Separator } from "@/components/ui/separator";
 import prisma from "@/lib/db";
 import { useCountries } from "@/lib/getCountries";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
 
 async function getData(homeId: string) {
@@ -42,6 +43,9 @@ export default async function HomeRoute({
   const data = await getData(params.id);
   const { getCountryByValue } = useCountries();
   const country = getCountryByValue(data?.country as string);
+
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
 
   return (
     <div className="w-[75%] mx-auto mt-10 mb-12">
@@ -95,7 +99,20 @@ export default async function HomeRoute({
           <HomeMap locationValue={country?.value as string} />
         </div>
 
-        <SelectCalender />
+        <form action="">
+          <input
+            type="hidden"
+            name="homeId"
+            value={params.id}
+          />
+          <input
+            type="hidden"
+            name="userId"
+            value={user.id}
+          />
+
+          <SelectCalender />
+        </form>
       </div>
     </div>
   );
