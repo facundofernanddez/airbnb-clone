@@ -3,6 +3,7 @@ import { createReservation } from "@/app/actions";
 import CategoryShowcase from "@/components/CategoryShowcase";
 import HomeMap from "@/components/HomeMap";
 import SelectCalender from "@/components/SelectCalender";
+import { ReservationSubmitButton } from "@/components/SubmitButtons";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import prisma from "@/lib/db";
@@ -26,6 +27,11 @@ async function getData(homeId: string) {
       title: true,
       categoryName: true,
       country: true,
+      Reservation: {
+        where: {
+          homeId: homeId,
+        },
+      },
       User: {
         select: {
           profileImg: true,
@@ -114,15 +120,10 @@ export default async function HomeRoute({
             value={user?.id}
           />
 
-          <SelectCalender />
+          <SelectCalender reservation={data?.Reservation} />
 
           {user?.id ? (
-            <Button
-              className="w-full"
-              type="submit"
-            >
-              Make a Reservation!
-            </Button>
+            <ReservationSubmitButton />
           ) : (
             <Button
               className="w-full"
