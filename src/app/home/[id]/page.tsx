@@ -43,13 +43,11 @@ async function getData(homeId: string) {
 
   return data;
 }
+type Params = Promise<{ id: string }>;
 
-export default async function HomeRoute({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const data = await getData(params.id);
+export default async function HomeRoute(props: { params: Params }) {
+  const { id } = await props.params;
+  const data = await getData(id);
   const { getCountryByValue } = useCountries();
   const country = getCountryByValue(data?.country as string);
 
@@ -112,7 +110,7 @@ export default async function HomeRoute({
           <input
             type="hidden"
             name="homeId"
-            value={params.id}
+            value={id}
           />
           <input
             type="hidden"
