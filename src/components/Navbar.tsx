@@ -3,6 +3,7 @@ import Link from "next/link";
 import DesktopLogo from "../../public/airbnb-desktop.png";
 import MobileLogo from "../../public/airbnb-mobile.webp";
 import UserNav from "./UserNav";
+import SearchModalComponent from "./SearchComponent";
 
 export default function Navbar() {
   return (
@@ -22,7 +23,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="rounded-full border px-5 py-2"></div>
+        <SearchModalComponent />
 
         <UserNav />
       </div>
